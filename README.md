@@ -1,9 +1,4 @@
-tutorial
+Project Euler problems solved using Erlang
 =====
 
-An OTP application
-
-Build
------
-
-    $ rebar3 compile
+Learning Erlang using Project Euler
