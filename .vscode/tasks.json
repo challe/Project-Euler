@@ -1,0 +1,16 @@
+{
+    "version": "0.1.0",
+    "command": "c:\\dev\\erlang\\build.cmd",
+    "args": ["${fileDirname}", "${fileBasename}"],
+    "isShellCommand": false,
+    "showOutput": "always",
+    "echoCommand": true,
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "build",
+            "isBuildCommand": true,
+            "args": []
+        }
+    ]
+}
