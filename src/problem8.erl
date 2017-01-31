@@ -6,19 +6,11 @@ adjacent(N) ->
     adjacent(1, N, BigNumber, 0).
 adjacent(C, N, BigNumber, Max) when C+N < erlang:length(BigNumber) ->
     String = string:substr(BigNumber, C, N),
-    Product = product(String),
+    List = lists:map(fun(X) -> {Int, _} = string:to_integer([X]), Int end, String),
+    Product = lists:foldl(fun(X, Prod) -> X * Prod end, 1, List),
+
     case Product > Max of
         true -> adjacent(C+1, N, BigNumber, Product);
         false -> adjacent(C+1, N, BigNumber, Max)
     end;
 adjacent(_,_,_,Max) -> Max.
-
-product(String) -> product(String, []).
-product([H|T], List) when erlang:length(T) >= 0 ->
-    {Int,_} = string:to_integer([H]),
-    product(T, [Int|List]);
-product(_, List) -> multiply(List).
-
-multiply(List) -> multiply(List, 1).
-multiply([H|T], Sum) when erlang:length(T) >= 0 ->multiply(T, Sum*H);
-multiply(_, Sum) -> Sum.
